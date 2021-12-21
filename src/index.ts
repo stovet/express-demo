@@ -2,6 +2,8 @@ import express from "express";
 import routes from './routes/app-routes'
 import languageRoutes from "./routes/language-routes";
 import userRoutes from "./routes/user-routes"
+import searchRoutes from "./routes/search-routes";
+import shopRoutes from "./routes/shop-routes";
 
 const app = express(); // initialize express
 
@@ -12,8 +14,10 @@ app.use("/", routes);
 app.use("/languages/", languageRoutes);
 //enable "/users"
 app.use("/users/", userRoutes);
+app.use("/", searchRoutes); // alternative to languages and user
 
-
+// enable /api/shops
+app.use("/api/shops", shopRoutes);
 
 
 // Directly set routes
